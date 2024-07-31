@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect } from "react";
 import { Box } from "@mui/material";
 import { useDispatch } from "react-redux";
@@ -12,13 +13,11 @@ import { logout } from "../../store/authSlice";
 import { fetchTasks } from "../../store/taskSlice";
 
 const Dashboard: React.FC = () => {
-  const userInfo = localStorage.getItem("userInfo");
+  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
+
   const dispatch = useDispatch();
   const router = useRouter();
 
-  if (!userInfo) {
-    router.push("/login");
-  }
   const handleLogout = () => {
     dispatch(logout());
     router.push("/login");
@@ -31,7 +30,7 @@ const Dashboard: React.FC = () => {
     <Box sx={{ display: "flex" }}>
       <SideBar />
       <Box sx={{ flexGrow: 1, marginLeft: "30px" }}>
-        <Greet name={JSON.parse(userInfo || "{}").name} />
+        <Greet name={userInfo?.name} />
         <TaskForm open={false} closeForm={() => null} />
         <TaskBoard />
       </Box>
