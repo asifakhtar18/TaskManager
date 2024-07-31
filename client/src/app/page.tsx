@@ -1,16 +1,13 @@
-"use client";
-
 import React from "react";
 
 import "./globals.css";
 
-const Home = ({
-  Component,
-  pageProps,
-}: {
+type PageProps = {
   Component: React.ComponentType<any>;
   pageProps: any;
-}) => {
+};
+
+const Home: React.FC<PageProps> = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
 
