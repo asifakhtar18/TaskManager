@@ -25,11 +25,12 @@ const Dashboard: React.FC = () => {
     fetchTasksCallback();
   }, [fetchTasksCallback]);
 
-  const { name }: any = useSelector((state: RootState) => state.auth.userInfo);
+  const { name }: any =
+    useSelector((state: RootState) => state.auth.userInfo) || {};
 
   return (
     <Box sx={{ display: "flex" }}>
-      <SideBar />
+      <SideBar name={name || ""} />
       <Box sx={{ flexGrow: 1, marginLeft: "30px" }}>
         <Greet name={name} />
         <TaskForm open={false} closeForm={() => null} />

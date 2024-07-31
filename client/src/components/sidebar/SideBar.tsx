@@ -19,9 +19,7 @@ import SideBarItem from "./SideBarItem";
 import CreateTask from "../task-comp/CreateTask";
 import { RootState } from "@/store/store";
 
-const SideBar: React.FC = () => {
-  const { name }: any = useSelector((state: RootState) => state.auth.userInfo);
-
+const SideBar = ({ name }: { name: string }) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
