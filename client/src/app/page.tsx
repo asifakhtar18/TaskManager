@@ -1,14 +1,7 @@
-import React from "react";
+"use client";
 
-import "./globals.css";
+import Auth from "@/components/Auth";
 
-type PageProps = {
-  Component: React.ComponentType<any>;
-  pageProps: any;
-};
-
-const Home: React.FC<PageProps> = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
-};
-
-export default Home;
+export default function Home() {
+  return <Auth isRegister={false} />;
+}
