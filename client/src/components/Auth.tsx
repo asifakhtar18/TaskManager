@@ -126,7 +126,7 @@ export default function Auth({ isRegister }: { isRegister: boolean }) {
         <Box sx={{ marginTop: "10px" }}>
           {!isRegister ? (
             <Typography>
-              Don't have an account? Create a
+              Don&apos;t have an account? Create a
               <Link
                 href="/signup"
                 sx={{
