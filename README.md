@@ -18,7 +18,7 @@ Drag and Drop: react-beautiful-dnd
 
 Installation
 Clone the repository:
-git clone https://github.com/your-username/task-manager.git
+git clone https://github.com/asifakhtar18/TaskManager.git
 cd task-manager
 
 Install dependencies for both the frontend and backend:
