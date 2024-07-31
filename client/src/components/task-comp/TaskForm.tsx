@@ -44,7 +44,9 @@ const TaskForm: React.FC<TaskFormProps> = ({ open, closeForm }) => {
   const handleSubmit = (e: React.FormEvent) => {
     console.log({ title, description, status, priority, deadline });
     e.preventDefault();
-    dispatch(createTask({ title, description, status, priority, deadline }));
+    dispatch(
+      createTask({ title, description, status, priority, deadline }) as any
+    );
   };
 
   return (

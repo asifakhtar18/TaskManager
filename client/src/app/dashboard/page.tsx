@@ -27,7 +27,7 @@ const Dashboard: React.FC = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchTasks() as any);
   }, [dispatch]);
 
   return (

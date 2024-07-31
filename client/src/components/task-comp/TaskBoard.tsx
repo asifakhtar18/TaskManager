@@ -17,7 +17,7 @@ const TaskBoard: React.FC = () => {
   const { isOpen, closeDrawer } = useDrawer();
 
   useEffect(() => {
-    dispatch(fetchTasks());
+    dispatch(fetchTasks() as any);
   }, [dispatch]);
 
   const onDragEnd = (result: DropResult) => {

@@ -40,14 +40,14 @@ export default function Auth({ isRegister }: { isRegister: boolean }) {
     e.preventDefault();
     if (isRegister) {
       try {
-        await dispatch(register({ email, password, name })).unwrap();
+        await dispatch(register({ email, password, name }) as any).unwrap();
         router.push("/dashboard");
       } catch (err) {
         console.log(err);
       }
     } else {
       try {
-        await dispatch(login({ email, password })).unwrap();
+        await dispatch(login({ email, password }) as any).unwrap();
         router.push("/dashboard");
       } catch (err) {
         console.log(err);
@@ -126,7 +126,7 @@ export default function Auth({ isRegister }: { isRegister: boolean }) {
         <Box sx={{ marginTop: "10px" }}>
           {!isRegister ? (
             <Typography>
-              Don't have an account? Create a
+              Don&lsquo;t have an account? Create a
               <Link
                 href="/signup"
                 sx={{
