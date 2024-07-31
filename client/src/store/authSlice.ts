@@ -30,7 +30,7 @@ export const login = createAsyncThunk(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/login`,
         credentials
       );
-      localStorage.setItem("userInfo", JSON.stringify(data));
+
       return data;
     } catch (error: any) {
       return rejectWithValue(error.response.data.message);
@@ -49,7 +49,7 @@ export const register = createAsyncThunk(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/auth/signup`,
         credentials
       );
-      localStorage.setItem("userInfo", JSON.stringify(data));
+
       return data;
     } catch (error: any) {
       return rejectWithValue(error.response.data.message);
@@ -62,7 +62,6 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      localStorage.removeItem("userInfo");
       state.userInfo = null;
     },
   },

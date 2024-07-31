@@ -1,6 +1,6 @@
 "use client";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { Avatar, Box, Button, Typography } from "@mui/material";
 
@@ -17,17 +17,17 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { logout } from "../../store/authSlice";
 import SideBarItem from "./SideBarItem";
 import CreateTask from "../task-comp/CreateTask";
+import { RootState } from "@/store/store";
 
 const SideBar: React.FC = () => {
-  const userInfo = localStorage.getItem("userInfo");
-  const { name } = JSON.parse(userInfo || "{}");
+  const { name }: any = useSelector((state: RootState) => state.auth.userInfo);
 
   const dispatch = useDispatch();
   const router = useRouter();
 
   const handleLogout = () => {
     dispatch(logout());
-    router.push("/login");
+    router.push("/");
   };
   return (
     <Box sx={{ width: "250px", height: "100vh", background: "#fff" }}>

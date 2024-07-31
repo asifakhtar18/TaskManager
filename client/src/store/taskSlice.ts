@@ -31,14 +31,16 @@ export const fetchTasks = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     try {
       const state = getState() as RootState;
-      let token = null;
-      if (localStorage.getItem("userInfo")) {
-        const userInfo = localStorage.getItem("userInfo");
-        const parsedUserInfo = JSON.parse(userInfo || "{}");
-        token = parsedUserInfo.token;
-      } else {
-        token = state.auth.userInfo?.token;
-      }
+
+      const { token } = state.auth.userInfo || {};
+      // let token = null;
+      // if (window?.localStorage.getItem("userInfo")) {
+      //   const userInfo = window?.localStorage.getItem("userInfo");
+      //   const parsedUserInfo = JSON.parse(userInfo || "{}");
+      //   token = parsedUserInfo.token;
+      // } else {
+      //   token = state.auth.userInfo?.token;
+      // }
 
       const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`,
@@ -59,16 +61,17 @@ export const createTask = createAsyncThunk(
   async (taskData: Partial<Task>, { getState, rejectWithValue }) => {
     try {
       const state = getState() as RootState;
+      const { token } = state.auth.userInfo || {};
 
-      let token = null;
+      // let token = null;
 
-      if (localStorage.getItem("userInfo")) {
-        const userInfo = localStorage.getItem("userInfo");
-        const parsedUserInfo = JSON.parse(userInfo || "{}");
-        token = parsedUserInfo.token;
-      } else {
-        token = state.auth.userInfo?.token;
-      }
+      // if (window?.localStorage.getItem("userInfo")) {
+      //   const userInfo = window?.localStorage.getItem("userInfo");
+      //   const parsedUserInfo = JSON.parse(userInfo || "{}");
+      //   token = parsedUserInfo.token;
+      // } else {
+      //   token = state.auth.userInfo?.token;
+      // }
       const { data } = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks`,
         taskData,
@@ -89,14 +92,16 @@ export const updateTask = createAsyncThunk(
   async (taskData: Partial<Task>, { getState, rejectWithValue }) => {
     try {
       const state = getState() as RootState;
-      let token = null;
-      if (localStorage.getItem("userInfo")) {
-        const userInfo = localStorage.getItem("userInfo");
-        const parsedUserInfo = JSON.parse(userInfo || "{}");
-        token = parsedUserInfo.token;
-      } else {
-        token = state.auth.userInfo?.token;
-      }
+      const { token } = state.auth.userInfo || {};
+
+      // let token = null;
+      // if (window?.localStorage.getItem("userInfo")) {
+      //   const userInfo = window?.localStorage.getItem("userInfo");
+      //   const parsedUserInfo = JSON.parse(userInfo || "{}");
+      //   token = parsedUserInfo.token;
+      // } else {
+      //   token = state.auth.userInfo?.token;
+      // }
       const { _id, ...rest } = taskData;
       const { data } = await axios.put(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${_id}`,
@@ -117,15 +122,17 @@ export const deleteTask = createAsyncThunk(
   async (taskId: string, { getState, rejectWithValue }) => {
     try {
       const state = getState() as RootState;
-      let token = null;
+      const { token } = state.auth.userInfo || {};
 
-      if (localStorage.getItem("userInfo")) {
-        const userInfo = localStorage.getItem("userInfo");
-        const parsedUserInfo = JSON.parse(userInfo || "{}");
-        token = parsedUserInfo.token;
-      } else {
-        token = state.auth.userInfo?.token;
-      }
+      // let token = null;
+
+      // if (window?.localStorage.getItem("userInfo")) {
+      //   const userInfo = window?.localStorage.getItem("userInfo");
+      //   const parsedUserInfo = JSON.parse(userInfo || "{}");
+      //   token = parsedUserInfo.token;
+      // } else {
+      //   token = state.auth.userInfo?.token;
+      // }
       await axios.delete(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/${taskId}`,
         {
