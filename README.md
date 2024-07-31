@@ -17,8 +17,11 @@ State Management: Redux Toolkit , Context API
 Drag and Drop: react-beautiful-dnd
 
 Installation
+
 Clone the repository:
+
 git clone https://github.com/asifakhtar18/TaskManager.git
+
 cd task-manager
 
 Install dependencies for both the frontend and backend:
