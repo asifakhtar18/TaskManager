@@ -1,4 +1,5 @@
 Task Manager
+
 This is a task management application similar to Trello, built with Next.js, TypeScript, Node.js, Express, and MongoDB. The application allows users to create, manage, and organize tasks using a drag-and-drop interface.
 
 Features
