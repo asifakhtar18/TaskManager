@@ -13,17 +13,10 @@ import { logout } from "../../store/authSlice";
 import { fetchTasks } from "../../store/taskSlice";
 
 const Dashboard: React.FC = () => {
-  const [userInfo, setUserInfo] = useState<any>({});
   const dispatch = useDispatch();
   const router = useRouter();
 
   useEffect(() => {
-    // Check if localStorage is available
-    if (typeof window !== "undefined") {
-      const storedUserInfo = localStorage.getItem("userInfo");
-      setUserInfo(storedUserInfo ? JSON.parse(storedUserInfo) : {});
-    }
-
     dispatch(fetchTasks() as any);
   }, [dispatch]);
 
@@ -36,7 +29,7 @@ const Dashboard: React.FC = () => {
     <Box sx={{ display: "flex" }}>
       <SideBar />
       <Box sx={{ flexGrow: 1, marginLeft: "30px" }}>
-        <Greet name={userInfo?.name} />
+        <Greet name="" />
         <TaskForm open={false} closeForm={() => null} />
         <TaskBoard />
       </Box>
