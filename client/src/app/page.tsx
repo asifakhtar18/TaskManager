@@ -4,8 +4,10 @@ import "./globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@material-tailwind/react";
 import ReduxProvider from "../store/reduxProvider";
+import { AppInitialProps } from "next/app";
+import { NextComponentType, NextPageContext } from "next";
 
-function Home({ Component, pageProps }: AppProps) {
+const Home = ({ Component, pageProps }: AppProps) => {
   return (
     <ThemeProvider>
       <ReduxProvider>
@@ -13,6 +15,6 @@ function Home({ Component, pageProps }: AppProps) {
       </ReduxProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default Home;
