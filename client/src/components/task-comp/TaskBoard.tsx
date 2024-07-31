@@ -6,7 +6,6 @@ import { fetchTasks } from "../../store/taskSlice";
 import TaskColumn from "./TaskColumn";
 import { RootState } from "../../store/store";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import CreateTask from "./CreateTask";
 
 import { useDrawer } from "../../context/DrawerContext";
 
