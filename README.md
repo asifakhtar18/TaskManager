@@ -27,26 +27,39 @@ Install dependencies for both the frontend and backend:
 
 # Install frontend dependencies
 cd client
+
 npm install
+
 Create a .env.local file in the server directory with the following content:
+
 NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
 
 
 # Install backend dependencies
+
 cd ../server
+
 npm install
+
 Create a .env file in the server directory with the following content:
+
 MONGO_URI=your_mongodb_connection_string
+
 JWT_SECRET=your_jwt_secret
+
 PORT=3001
 
 
 Start the backend server:
+
 npm start
+
 The backend server will run on http://localhost:3001.
 
 
 Start the frontend server:
+
 npm run dev
+
 The frontend server will run on http://localhost:3000.
 
