@@ -41,7 +41,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, index }) => {
 
   const dispatch = useDispatch();
   const onDragEnd = () => {
-    dispatch(updateTask(task));
+    dispatch(updateTask(task) as any);
   };
 
   return (

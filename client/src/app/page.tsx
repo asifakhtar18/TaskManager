@@ -5,7 +5,7 @@ import { ThemeProvider } from "@material-tailwind/react";
 import ReduxProvider from "../store/reduxProvider";
 import "./globals.css";
 
-const Home: React.FC<> = ({ Component, pageProps }) => {
+const Home: React.FC = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <ReduxProvider>
