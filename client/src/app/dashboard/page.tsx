@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -13,19 +13,25 @@ import { logout } from "../../store/authSlice";
 import { fetchTasks } from "../../store/taskSlice";
 
 const Dashboard: React.FC = () => {
-  const userInfo = JSON.parse(localStorage.getItem("userInfo") || "{}");
-
+  const [userInfo, setUserInfo] = useState<any>({});
   const dispatch = useDispatch();
   const router = useRouter();
+
+  useEffect(() => {
+    // Check if localStorage is available
+    if (typeof window !== "undefined") {
+      const storedUserInfo = localStorage.getItem("userInfo");
+      setUserInfo(storedUserInfo ? JSON.parse(storedUserInfo) : {});
+    }
+
+    dispatch(fetchTasks() as any);
+  }, [dispatch]);
 
   const handleLogout = () => {
     dispatch(logout());
     router.push("/login");
   };
 
-  useEffect(() => {
-    dispatch(fetchTasks() as any);
-  }, [dispatch]);
   return (
     <Box sx={{ display: "flex" }}>
       <SideBar />
