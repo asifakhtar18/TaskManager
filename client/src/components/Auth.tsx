@@ -142,7 +142,7 @@ export default function Auth({ isRegister }: { isRegister: boolean }) {
             <Typography>
               Already have an account? Login
               <Link
-                href="/login"
+                href="/"
                 sx={{
                   color: "#4534AC",
                   textDecoration: "none",
