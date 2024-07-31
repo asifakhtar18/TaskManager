@@ -1,17 +1,15 @@
 "use client";
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { Box } from "@mui/material";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 
-import { RootState } from "../../store/store";
 import TaskBoard from "@/components/task-comp/TaskBoard";
 import TaskForm from "@/components/task-comp/TaskForm";
 import SideBar from "@/components/sidebar/SideBar";
-
+import Greet from "@/components/greetings/Greet";
 import { logout } from "../../store/authSlice";
 import { fetchTasks } from "../../store/taskSlice";
-import { Box } from "@mui/material";
-import Greet from "@/components/greetings/Greet";
 
 const Dashboard: React.FC = () => {
   const userInfo = localStorage.getItem("userInfo");
