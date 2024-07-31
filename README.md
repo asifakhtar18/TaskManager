@@ -22,7 +22,7 @@ Clone the repository:
 
 git clone https://github.com/asifakhtar18/TaskManager.git
 
-cd task-manager
+cd TaskManager
 
 Install dependencies for both the frontend and backend:
 
